@@ -5,8 +5,8 @@ import express from "express";
 import http from "http";
 import path from "path";
 
-import { PORT, connectMongoDB } from "./config";
 import { UserRouter, SendBtcRoute } from "./routes";
+import { PORT, connectMongoDB } from "./config";
 
 // Load environment variables from .env file
 dotenv.config();
