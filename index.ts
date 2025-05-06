@@ -2,10 +2,10 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
-import path from 'path';
+import http from "http";
+import path from "path";
 
 import { PORT, connectMongoDB } from "./config";
-import http from "http";
 import { UserRouter, SendBtcRoute } from "./routes";
 
 // Load environment variables from .env file
@@ -21,13 +21,13 @@ const app = express();
 app.use(cors());
 
 // Serve static files from the 'public' folder
-app.use(express.static(path.join(__dirname, './public')));
+app.use(express.static(path.join(__dirname, "./public")));
 
 // Parse incoming JSON requests using body-parser
-app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ limit: '50mb', extended: true }));
-app.use(bodyParser.json({ limit: '50mb' }));
-app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+app.use(express.json({ limit: "50mb" }));
+app.use(express.urlencoded({ limit: "50mb", extended: true }));
+app.use(bodyParser.json({ limit: "50mb" }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 
 const server = http.createServer(app);
 
